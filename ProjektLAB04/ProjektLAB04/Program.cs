@@ -1,4 +1,5 @@
 using ProjektLAB04.Animals;
+using ProjektLAB04.Visits;
 
 namespace ProjektLAB04
 {
@@ -15,6 +16,7 @@ namespace ProjektLAB04
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<IAnimalService, AnimalService>();
+            builder.Services.AddScoped<IVisitService, VisitService>();
 
             var app = builder.Build();
 
@@ -27,6 +29,7 @@ namespace ProjektLAB04
             app.UseAuthorization();
 
             app.RegisterEndpointsForAnimals();
+            app.RegisterEndpointsForVisits();
 
             app.Run();
         }
